@@ -39,7 +39,7 @@ public class MergeSort {
     public static void mergeSortedArrays(int[] array, int left, int middle, int right) {
         // [left - middle] [ middle+1 - right]
         int i = left;
-        int j = middle+1;
+        int j = middle + 1;
         int sizeOfSortedArray = right - left + 1;
         int[] sortedArray = new int[sizeOfSortedArray];
         int sortedIndex = 0;
