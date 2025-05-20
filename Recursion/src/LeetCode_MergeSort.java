@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class LeetCode_MergeSort {
     public static void main(String[] args) {
-        //kth element in merged two sorted arrays
+        //Problem 1: kth element in merged two sorted arrays
         int[] a = {2, 3, 6, 7, 9};
         int[] b = {1, 4, 8, 10};
         int k = 7;
@@ -18,6 +18,11 @@ public class LeetCode_MergeSort {
         System.out.println(finalArray[k]);
 
         System.out.println(findkthIndexElement(a, b, k));
+
+        //Problem 2: Count the inversions
+        int[] arrayProb2 = {4,3,2,1};
+        int inversionCount = countInversions(arrayProb2, 0, arrayProb2.length-1);
+        System.out.println(inversionCount);
     }
 
     //Method1
@@ -106,5 +111,78 @@ public class LeetCode_MergeSort {
             j++;
         }
         return -1;
+    }
+
+    public static int countInversions(int[] array, int left, int right) {
+        if(left == right) { //base condition
+            return 0;
+        }
+        int inversionCount = 0;
+        //1.divide
+        int middle = (left + right) / 2;
+        // array 1: left - middle; array2: middle + 1 - right
+
+        //2.sort
+        int countFromLeftArray = countInversions(array, left, middle); // sort 1st array
+        int countFromRightArray = countInversions(array, middle + 1, right); // sord secord array
+
+        //3.merge sorted arrays
+        int countFromMerge = mergeSortedArrays2(array, left, middle, right);
+        inversionCount = countFromLeftArray + countFromRightArray + countFromMerge;
+
+
+        System.out.println("Array1");
+        for(int i = left; i<=middle; i++){
+            System.out.print(array[i]+" ");
+        }
+        System.out.println();
+        System.out.println("Array2");
+        for(int j = middle+1; j<=right; j++){
+            System.out.print(array[j]+" ");
+        }
+        System.out.println();
+
+        return inversionCount;
+    }
+
+    public static int mergeSortedArrays2(int[] array, int left, int middle, int right) {
+        // [left - middle] [ middle+1 - right]
+        int inversionCount = 0;
+        int i = left;
+        int j = middle + 1;
+        int sizeOfSortedArray = right - left + 1;
+        int[] sortedArray = new int[sizeOfSortedArray];
+        int sortedIndex = 0;
+
+        while(i <= middle && j <= right) {
+            if(array[i] < array[j]) {
+                sortedArray[sortedIndex] = array[i]; sortedIndex++;
+                i++;
+            } else if (array[i] > array[j]) {
+                sortedArray[sortedIndex] = array[j]; sortedIndex++;
+                j++;
+                inversionCount += middle - i + 1; // eg: [left 4 - middle 9] i=7, 9-7+1
+            } else {
+                sortedArray[sortedIndex] = array[i]; sortedIndex++;
+                sortedArray[sortedIndex] = array[j]; sortedIndex++;
+                i++; j++;
+            }
+        }
+        //add remaining elements
+        while (i <= middle) {
+            sortedArray[sortedIndex] = array[i]; sortedIndex++;
+            i++;
+        }
+        while (j <= right) {
+            sortedArray[sortedIndex] = array[j]; sortedIndex++;
+            j++;
+        }
+
+        //update main array
+        for(int k=0; k<sizeOfSortedArray; k++) {
+            array[left + k] = sortedArray[k];
+        }
+
+        return inversionCount;
     }
 }
