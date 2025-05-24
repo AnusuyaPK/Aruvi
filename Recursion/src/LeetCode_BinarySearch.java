@@ -1,4 +1,4 @@
-public class LeetCode {
+public class LeetCode_BinarySearch {
     public static void main(String[] args) {
 //        int[] array = {4,5,6,7,0,1,2};
 //        System.out.println(binarySearchUsingRecursion(array, 0, 0,array.length-1));
