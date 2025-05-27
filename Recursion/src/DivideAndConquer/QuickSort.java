@@ -1,3 +1,5 @@
+package DivideAndConquer;
+
 import java.util.Arrays;
 
 public class QuickSort {

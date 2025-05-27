@@ -1,3 +1,5 @@
+package DivideAndConquer;
+
 public class BinarySearch {
     public static int count = 0;
     public static void main(String[] args) {

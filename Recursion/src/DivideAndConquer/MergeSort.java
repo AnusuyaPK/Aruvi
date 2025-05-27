@@ -1,3 +1,5 @@
+package DivideAndConquer;
+
 public class MergeSort {
     public static void main(String[] args) {
         int[] array = {38,27,43,3,9,82,10,15,60,22}; // arrays are pass by reference in java

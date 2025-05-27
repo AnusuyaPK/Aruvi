@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package DivideAndConquer;
 
 public class LeetCode_MergeSort {
     public static void main(String[] args) {

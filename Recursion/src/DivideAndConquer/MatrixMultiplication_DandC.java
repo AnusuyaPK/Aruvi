@@ -1,3 +1,5 @@
+package DivideAndConquer;
+
 public class MatrixMultiplication_DandC {
     public static void main(String[] args) {
         //Matrix Multiplication using D & C

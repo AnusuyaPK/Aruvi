@@ -1,3 +1,5 @@
+package DivideAndConquer;
+
 public class LeetCode_BinarySearch {
     public static void main(String[] args) {
 //        int[] array = {4,5,6,7,0,1,2};
