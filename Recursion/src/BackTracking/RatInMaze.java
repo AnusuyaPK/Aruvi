@@ -9,9 +9,9 @@ public class RatInMaze {
 
     public static void main(String[] args) {
         int[][] maze = { {1, 0, 0, 0},
-                         {1, 1, 1, 1},
+                         {1, 1, 0, 1},
                          {1, 1, 1, 0},
-                         {0, 1, 1, 1}};
+                         {1, 1, 1, 1}};
         ArrayList<String> finalPathList = new ArrayList<>();
         findPaths(maze, 0, 0, "", finalPathList);
         for(int i=0; i<finalPathList.size(); i++) {
@@ -51,3 +51,4 @@ public class RatInMaze {
     }
 
 }
+
