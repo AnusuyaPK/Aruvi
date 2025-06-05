@@ -7,7 +7,7 @@ public class KnightsTour {
     static int[] rowChanges = {-2, -2, -1, 1, 2, 2, 1, -1};
     static int[] colChanges = {-1, 1, 2, 2, 1, -1, -2, -2};
     public static void main(String[] args) {
-        int n = 3;
+        int n = 4;
 
         // chessboard initial construction
         int[][] chessBoard = new int[n][n];
@@ -16,7 +16,7 @@ public class KnightsTour {
                 chessBoard[i][j] = -1;
             }
         }
-        
+
         chessBoard[0][0] = 0;
         boolean isFullVisitPossible = findPattern(chessBoard, 0, 0, 1);
         if(isFullVisitPossible) {
@@ -41,8 +41,9 @@ public class KnightsTour {
     public static boolean findPattern(int[][] chessBoard, int currentRow, int currentCol, int step) {
         // Base Condition
         int n = chessBoard.length;
-        if(step == (n*n)) { // tomorrow's class
+        if(step == (n*n)) {
             //mission success
+            System.out.println(currentRow + " " + currentCol);
             return true;
         }
 
