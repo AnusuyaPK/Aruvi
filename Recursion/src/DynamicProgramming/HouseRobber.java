@@ -19,7 +19,7 @@ public class HouseRobber {
 
         System.out.println(noOfFuncCallsInRec + " " + noOfFuncCallsInDP);
         // 41/3 = 13; Using Dp, we have reduced the func call 3 times
-        // larger the input size, more its made efficiet 
+        // larger the input size, more its made efficiet
     }
 
     // 1. Using Recursion

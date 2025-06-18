@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class FibonacciSeries {
     public static void main(String[] args) {
-        int n = 7;
+        int n = 5;
         System.out.println( findNumberInFibonacciSeriesUsingBasicRecursion(n) );
         int[] memo = new int[n+1];
         Arrays.fill(memo, -1);
